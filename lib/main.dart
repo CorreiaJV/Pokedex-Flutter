@@ -4,7 +4,8 @@ import 'package:pokedex_app/HomePage.dart';
 import 'pokeData.dart';
 
 void main (){
+  bool x = true;
   runApp(MaterialApp(
- home: HomePage(),
+ home: HomePage(x),
   ));
 }

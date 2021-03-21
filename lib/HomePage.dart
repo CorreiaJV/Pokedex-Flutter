@@ -6,11 +6,15 @@ import 'package:pokedex_app/pokeInfo.dart';
 import 'pokeData.dart';
 
 class HomePage extends StatefulWidget {
+  bool isDark = false;
+
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
+
+  HomePage(this.isDark);
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> {
   @override
   void initState() {
     // TODO: implement initState
@@ -19,6 +23,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   PokeData pokeData;
+
+  Color _cardColor, _textColor;
 
   Future fetchData() async {
     var res = await http.get(
@@ -31,48 +37,115 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Pokedex"),
-        centerTitle: true,
-        backgroundColor: Colors.cyan,
-      ),
-      body: pokeData == null
-          ? Center(
-              child: CircularProgressIndicator(),
-            )
-          : GridView.count(
-              crossAxisCount: 2,
-              children: pokeData.pokemon
-                  .map(
-                    (poke) => Padding(
-                      padding: EdgeInsets.all(2.0),
-                      child: GestureDetector(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => PokeInfo(
-                            pokeData: poke,
-                          )));
-                        },
-                          child: Card(
-                        child: Column(
-                          children: <Widget>[
-                            Container(
-                              height: 100,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: NetworkImage(poke.img))),
+        backgroundColor: Color.fromRGBO(220, 20, 60, 1),
+        appBar: AppBar(
+         leading: Container(),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                "assets/images/camera.png",
+                fit: BoxFit.cover,
+                height: 50,
+              ),
+              Text("Pokedex"),
+            ],
+          ),
+          centerTitle: true,
+          backgroundColor: Color.fromRGBO(220, 20, 60, 0.7),
+          actions: [ iconTheme(),
+            IconButton(
+                icon: Icon(
+                  Icons.search,
+                  size: 30,
+                ),
+                onPressed: () {})
+          ],
+        ),
+        body: pokeData == null
+            ? Center(
+                child: CircularProgressIndicator(),
+              )
+            : Stack(
+                children: [
+                  Image.asset(
+                    "assets/images/pokeBackground.jpeg",
+                    fit: BoxFit.cover,
+                    width: MediaQuery.of(context).size.height,
+                  ),
+                  GridView.count(
+                      crossAxisCount: 2,
+                      children: pokeData.pokemon
+                          .map(
+                            (poke) => Padding(
+                              padding: EdgeInsets.all(2.0),
+                              child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => PokeInfo(
+                                                  pokeData: poke,
+                                                  homeData: widget.isDark,
+                                                )));
+                                  },
+                                  child: Card(
+                                    color: _cardColor,
+                                    shadowColor: Colors.white,
+                                    child: Column(
+                                      children: <Widget>[
+                                        Container(
+                                          height: 100,
+                                          width: 100,
+                                          decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                  image:
+                                                      NetworkImage(poke.img))),
+                                        ),
+                                        Text(
+                                          poke.name,
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                              color: _textColor),
+                                        )
+                                      ],
+                                    ),
+                                  )),
                             ),
-                            Text(
-                              poke.name,
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      )),
-                    ),
-                  )
-                  .toList()),
-    );
+                          )
+                          .toList()),
+                ],
+              ));
+  }
+
+  Widget iconTheme() {
+    if (widget.isDark == true) {
+      _cardColor = Color.fromRGBO(0, 0, 0, 0.8);
+      _textColor = Colors.white;
+      return IconButton(
+          icon: Icon(
+            Icons.nights_stay_outlined,
+            size: 30,
+          ),
+          onPressed: () {
+            setState(() {
+              widget.isDark = false;
+            });
+          });
+    } else {
+      _cardColor = Color.fromRGBO(255, 255, 255, 0.8);
+      _textColor = Colors.black;
+      return IconButton(
+          icon: Icon(
+            Icons.wb_sunny_outlined,
+            size: 30,
+          ),
+          onPressed: () {
+            setState(() {
+              widget.isDark = true;
+            });
+          });
+    }
   }
 }
