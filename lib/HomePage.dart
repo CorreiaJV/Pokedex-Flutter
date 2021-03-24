@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:pokedex_app/pokeInfo.dart';
 import 'pokeData.dart';
+import 'DataSearch.dart';
 
 class HomePage extends StatefulWidget {
   bool isDark = false;
@@ -23,7 +24,7 @@ class HomePageState extends State<HomePage> {
   }
 
   PokeData pokeData;
-
+  DataSearch dataSearch;
   Color _cardColor, _textColor;
 
   Future fetchData() async {
@@ -39,7 +40,7 @@ class HomePageState extends State<HomePage> {
     return Scaffold(
         backgroundColor: Color.fromRGBO(220, 20, 60, 1),
         appBar: AppBar(
-         leading: Container(),
+          leading: Container(),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -53,13 +54,19 @@ class HomePageState extends State<HomePage> {
           ),
           centerTitle: true,
           backgroundColor: Color.fromRGBO(220, 20, 60, 0.7),
-          actions: [ iconTheme(),
+          actions: [
+            iconTheme(),
             IconButton(
                 icon: Icon(
                   Icons.search,
                   size: 30,
                 ),
-                onPressed: () {})
+                onPressed: () {
+                  showSearch(
+                      context: context,
+                      delegate: DataSearch(
+                          listPoke: pokeData, homeData: widget.isDark));
+                })
           ],
         ),
         body: pokeData == null

@@ -117,10 +117,11 @@ class _PokeInfoState extends State<PokeInfo> {
                               ),
                               Text("Weakness",
                                   style: TextStyle(color: _textColor)),
-                              Row(
+                              Row (children: [Expanded(
+                                  flex: 1,
+                                  child:Wrap(
                                 //Caixinhas com fundo bonitinho
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                alignment: WrapAlignment.spaceEvenly,
                                 children: widget.pokeData.weaknesses
                                     .map((weaknesses) => FilterChip(
                                           backgroundColor:
@@ -129,6 +130,7 @@ class _PokeInfoState extends State<PokeInfo> {
                                           onSelected: (b) {},
                                         ))
                                     .toList(),
+                              ))]
                               ),
                               _hasEvo(widget.pokeData),
                             ],
@@ -173,8 +175,9 @@ class _PokeInfoState extends State<PokeInfo> {
       return Container();
     }
   }
+
   // Funções
-      //Trocar de página arrastando para o lado
+  //Trocar de página arrastando para o lado
   void _onHorizontalDrag(DragEndDetails details) {
     if (details.primaryVelocity == 0)
       return; // user have just tapped on screen (no dragging)
@@ -213,7 +216,8 @@ class _PokeInfoState extends State<PokeInfo> {
       return pokelist.pokemon.elementAt(0);
     }
   }
- //Alterar o tema
+
+  //Alterar o tema
   Widget _theme() {
     if (widget.homeData == true) {
       _cardColor = Color.fromRGBO(30, 30, 30, 1);
@@ -243,7 +247,8 @@ class _PokeInfoState extends State<PokeInfo> {
           });
     }
   }
- //Cor do card a depender do tipo do pokemon
+
+  //Cor do card a depender do tipo do pokemon
   Color cardColor(String type) {
     switch (type) {
       case "Normal":
