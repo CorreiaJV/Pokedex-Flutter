@@ -87,7 +87,7 @@ class _PokeInfoState extends State<PokeInfo> {
                                 style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.white),
+                                    color: _textColor),
                               ),
                               Text(
                                 "Height: ${widget.pokeData.height}",
