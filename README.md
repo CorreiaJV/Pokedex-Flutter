@@ -23,8 +23,8 @@ A Pokédex, também conhecida como Poké-Agenda no Brasil é uma enciclopédia v
     - Combinar a cor do background com o tipo principal do Pokémon(Água = Azul, Fogo = Laranja, Psíquico = Rosa, etc);
     - Navegar pela Pokédex deslizando o dedo para a direita(avançando) ou esquerda(voltando); 
 ## Fotos 
-<img src ="assets/images/Prints/Back-Black.jpg" width= "300">   &emsp;&emsp;&emsp;  <img src ="assets/images/Prints/Back-White.jpg" width= "300">
-<img src ="assets/images/Prints/Search-Black.jpg" width= "300">   &emsp;&emsp;&emsp;  <img src ="assets/images/Prints/Search-White.jpg" width= "300">
+<img src ="assets/images/Prints/Back-Black.jpg" width= "300">   &emsp;&emsp;&emsp;  <img src ="assets/images/Prints/Back-White.jpg" width= "300"> &emsp;&emsp;&emsp;
+<img src ="assets/images/Prints/Search-Black.jpg" width= "300">   &emsp;&emsp;&emsp;  <img src ="assets/images/Prints/Search-White.jpg" width= "300"> &emsp;&emsp;&emsp;
 <img src ="assets/images/Prints/Bulba-White.jpg" width= "300">   &emsp;&emsp;  <img src ="assets/images/Prints/Charmander-Black.jpg" width= "300"> &emsp;&emsp;  <img src ="assets/images/Prints/Squirtle-White.jpg" width= "300"> &emsp;&emsp;  <img src ="assets/images/Prints/Butterfree-Black.jpg" width= "300">
 
 
