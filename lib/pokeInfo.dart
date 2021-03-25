@@ -188,7 +188,7 @@ class _PokeInfoState extends State<PokeInfo> {
           context,
           MaterialPageRoute(
               builder: (context) => PokeInfo(
-                    pokeData: nextPoke(),
+                    pokeData: nextPoke(), homeData: widget.homeData ,
                   )));
     } else {
       id = widget.pokeData.id;
@@ -196,7 +196,7 @@ class _PokeInfoState extends State<PokeInfo> {
           context,
           MaterialPageRoute(
               builder: (context) => PokeInfo(
-                    pokeData: previousPoke(),
+                    pokeData: previousPoke(), homeData: widget.homeData,
                   )));
     }
   }
