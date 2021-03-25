@@ -7,7 +7,7 @@ A Pokédex, também conhecida como Poké-Agenda no Brasil é uma enciclopédia v
 ## Funcionalidades
 - **HomePage:** 
     - Listar os 151 Pokémons presentes na API em cards com nome e imagem;
-    - Ir para a página referente ao Pokémon(PokePage) ao clilcar no seu card;
+    - Ir para a página referente ao Pokémon(PokePage) ao clicar no seu card;
 
 - **AppBar:** 
     - Alterar o tema do aplicativo(claro/escuro) ao clicar no ícone (Sol/Lua);
@@ -20,6 +20,7 @@ A Pokédex, também conhecida como Poké-Agenda no Brasil é uma enciclopédia v
 
 -  **PokePage:**
     - Exibir as  informações do Pokémon presentes na API;
+    - Combinar a cor do background com o tipo principal do Pokémon(Água = Azul, Fogo = Laranja, Psíquico = Rosa, etc);
     - Navegar pela Pokédex deslizando o dedo para a direita(avançando) ou esquerda(voltando); 
 ## Fotos 
 <img src ="assets/images/Prints/Back-Black.jpg" width= "300">   &emsp;&emsp;&emsp;  <img src ="assets/images/Prints/Back-White.jpg" width= "300">
