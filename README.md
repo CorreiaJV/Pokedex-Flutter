@@ -1,6 +1,6 @@
 # Pokédex App
 
-Projeto individual para melhorar em Flutter que consiste em criar uma pokédex, consumindo uma API e aplicando conceitos de estilização.
+Projeto individual para melhorar no desenvolvimento de aplicativos mobile com Flutter que consiste em criar uma pokédex, consumindo uma API e aplicando conceitos de estilização.
 ### O que é uma Pokédex? 
 A Pokédex, também conhecida como Poké-Agenda no Brasil é uma enciclopédia virtual portátil de alta tecnologia que os treinadores Pokémon transportam para registrar todas as espécies diferentes de Pokémons que são encontradas durante a sua viagem como treinadores.
     Fonte: https://pokemon.fandom.com/pt-br/wiki/Pok%C3%A9dex
